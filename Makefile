@@ -1,4 +1,4 @@
-CXX ?= clang++
+CXX ?= c++
 
 CFLAGS = -Og -g
 CPPFLAGS = $(CFLAGS)
