@@ -3,7 +3,7 @@ CXX ?= c++
 CFLAGS = -Og -g
 CPPFLAGS = $(CFLAGS)
 
-dominoes: main.o CDominoes.o CPlayer.o CRandom.o CTable.o
+dominoes: main.o CDominoes.o CPlayer.o CRandom.o CTable.o Domino.o
 	$(CXX) $(CPPFLAGS) -o $@ $^
 
 %.o: %.cpp

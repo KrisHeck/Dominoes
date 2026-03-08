@@ -3,6 +3,8 @@
 #include <sstream>
 #include <utility>
 
+// (Domino implementation is now in Domino.cpp)
+
 void CDominoes::create_dominoes() {
     all.clear();
     boneyard.clear();
