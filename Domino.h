@@ -15,4 +15,6 @@ public:
     int right() const;
 
     std::string toString() const;
+
+    void flip();
 };

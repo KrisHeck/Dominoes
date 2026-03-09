@@ -15,3 +15,9 @@ std::string Domino::toString() const {
     os << "[" << left_ << "|" << right_ << "]";
     return os.str();
 }
+
+void Domino::flip() {
+    int temp = left_;
+    left_ = right_;
+    right_ = temp;
+}
