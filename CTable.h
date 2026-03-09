@@ -2,9 +2,12 @@
 
 #include <vector>
 
+#include "Domino.h"
+#include "CDominoes.h"
+
 class CTable {
 private:
-    std::vector<domino> train;
+    std::vector<Domino> train;
     CDominoes *dealer;
     bool gameOver;
 

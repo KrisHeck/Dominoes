@@ -2,23 +2,21 @@
 #include "CPlayer.h"
 #include "CRandom.h"
 #include "CTable.h"
-#include "dominoes.h"
+#include "Domino.h"
 
 int
 main()
 {
-    CDominoes dealer;
     CTable table;
 
-    CPlayer player1(&dealer, &table);
-    CPlayer player2(&dealer, &table);
+    CPlayer player1(&table);
+    CPlayer player2(&table);
 
     // setup
-    dealer.create_dominoes();
     bool player1_to_move = true; // TODO: set this variable randomly
 
     // game loop
-    while (/* not gameover */) {
+    while (!table.isGameOver()) {
 	if (player1_to_move)
 	    player1.makeMove();
 	else

@@ -11,9 +11,9 @@ CPlayer::CPlayer(CTable *table) {
 }
 
 void CPlayer::makeMove() {
-    Domino left = table.getLeftTrain();
+    Domino left = table->getLeftTrain();
     int left_value = left.left();
-    Domino right = table.getRightTrain();
+    Domino right = table->getRightTrain();
     int right_value = right.right();
 
     bool canPlay = false;
@@ -28,24 +28,24 @@ void CPlayer::makeMove() {
 		canPlay = true;
 		dominoToPlay = hand[i];
 		dominoToPlay.flip();
-		hand.erase(i);
+		hand.erase(hand.begin() + i);
 	    }
 	    else if (hand[i].right() == left.left()) {
 		canPlay = true;
 		dominoToPlay = hand[i];
-		hand.erase(i);
+		hand.erase(hand.begin() + i);
 	    }
 	    else if (hand[i].left() == right.right()) {
 		canPlay = true;
 		dominoToPlay = hand[i];
-		hand.erase(i);
+		hand.erase(hand.begin() + i);
 		playLeft = false;
 	    }
 	    else if (hand[i].right() == right.right()) {
 		canPlay = true;
 		dominoToPlay = hand[i];
 		dominoToPlay.flip();
-		hand.erase(i);
+		hand.erase(hand.begin() + i);
 		playLeft = false;
 	    }
 	}
@@ -57,9 +57,9 @@ void CPlayer::makeMove() {
     }
 
     if (canPlay) {
-	if (dominoToPlayLeft)
-	    table.placeLeft(dominoToPlay)
+	if (playLeft)
+	    table->placeLeft(dominoToPlay);
 	else
-	    table.placeRight(dominoToPlay)
+	    table->placeRight(dominoToPlay);
     }
 }

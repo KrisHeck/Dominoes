@@ -3,6 +3,7 @@
 #include <vector>
 
 #include "CDominoes.h"
+#include "CTable.h"
 #include "Domino.h"
 
 class CPlayer {

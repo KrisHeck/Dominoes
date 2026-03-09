@@ -3,7 +3,7 @@
 #include <vector>
 
 #include "CDominoes.h"
-#include "domino.h"
+#include "Domino.h"
 
 CTable::CTable() {
     gameOver = false;
@@ -27,15 +27,15 @@ Domino CTable::getRightTrain() {
 }
 
 bool CTable::isBoneyardEmpty() {
-    return dealer.boneyardSize() != 0;
+    return dealer->boneyardSize() != 0;
 }
 
 Domino CTable::deal() {
-    return dealer.draw();
+    return dealer->draw();
 }
 
 void CTable::placeLeft(Domino d) {
-    train.insert(0, d);
+    train.insert(train.begin() + 0, d);
 }
 
 void CTable::placeRight(Domino d) {
