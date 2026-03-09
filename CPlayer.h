@@ -7,13 +7,11 @@
 
 class CPlayer {
 private:
-    CDominoes *dealer;
     CTable *table;
     std::vector<Domino> hand;
 
 public:
-    CPlayer(CDominoes *dealer, CTable *table);
+    CPlayer(CTable *table);
 
-    void giveDomino(Domino d);
     void makeMove();
 };

@@ -5,13 +5,8 @@
 #include "CDominoes.h"
 #include "Domino.h"
 
-CPlayer::CPlayer(CDominoes *dealer, CTable *table) {
-    this->dealer = dealer;
+CPlayer::CPlayer(CTable *table) {
     this->table = table;
-}
-
-void CPlayer::giveDomino(Domino d) {
-    hand.insert(d);
 }
 
 void CPlayer::makeMove() {
