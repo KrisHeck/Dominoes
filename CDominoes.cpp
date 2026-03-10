@@ -6,20 +6,19 @@
 // (Domino implementation is now in Domino.cpp)
 
 void CDominoes::create_dominoes() {
-    all.clear();
     boneyard.clear();
 
     // Double-six set: (0..6) => 28 unique tiles with i<=j
     for (int i = 0; i <= 6; i++) {
         for (int j = i; j <= 6; j++) {
-            all.emplace_back(i, j);
+            boneyard.emplace_back(i, j);
         }
     }
 }
 
-std::vector<Domino>& CDominoes::pieces() { return all; }
+std::vector<Domino>& CDominoes::pieces() { return boneyard; }
 
-const std::vector<Domino>& CDominoes::pieces() const { return all; }
+const std::vector<Domino>& CDominoes::pieces() const { return boneyard; }
 
 void CDominoes::setBoneyard(std::vector<Domino> by) { boneyard = std::move(by); }
 

@@ -7,7 +7,6 @@
 
 class CDominoes {
 private:
-    std::vector<Domino> all;       // all 28 pieces
     std::vector<Domino> boneyard;  // remaining available pieces after dealing
 
 public:

@@ -14,5 +14,6 @@ private:
 public:
     CPlayer(CTable *table);
 
+    void drawHand();
     void makeMove();
 };

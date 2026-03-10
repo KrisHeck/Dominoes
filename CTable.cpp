@@ -1,13 +1,21 @@
 #include "CTable.h"
 
 #include <vector>
+#include <iostream>
 
 #include "CDominoes.h"
 #include "Domino.h"
 
 CTable::CTable() {
     gameOver = false;
-    dealer = new CDominoes(/* params? */);
+    dealer = new CDominoes();
+    dealer->create_dominoes();
+
+    std::cerr << dealer->boneyardString() << std::endl;
+
+    // Put starting domino onto train
+    train.clear();
+    train.push_back(dealer->draw());
 }
 
 CTable::~CTable() {

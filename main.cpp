@@ -12,8 +12,11 @@ main()
     CPlayer player1(&table);
     CPlayer player2(&table);
 
+    player1.drawHand();
+    player2.drawHand();
+
     // setup
-    bool player1_to_move = true; // TODO: set this variable randomly
+    bool player1_to_move = true;
 
     // game loop
     while (!table.isGameOver()) {
@@ -21,6 +24,8 @@ main()
 	    player1.makeMove();
 	else
 	    player2.makeMove();
+	
+	player1_to_move == !player1_to_move;
     }
 
     // Display results

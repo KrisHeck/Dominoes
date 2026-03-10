@@ -1,6 +1,7 @@
 #include "CPlayer.h"
 
 #include <vector>
+#include <iostream>
 
 #include "CTable.h"
 #include "CDominoes.h"
@@ -10,7 +11,14 @@ CPlayer::CPlayer(CTable *table) {
     this->table = table;
 }
 
+void CPlayer::drawHand() {
+    for (int i = 0; i < 10; i++)
+	hand.push_back(table->deal());	
+}
+
 void CPlayer::makeMove() {
+    std::cerr << "Player making move" << std::endl;
+
     Domino left = table->getLeftTrain();
     int left_value = left.left();
     Domino right = table->getRightTrain();
@@ -22,7 +30,7 @@ void CPlayer::makeMove() {
     Domino dominoToPlay;
     bool playLeft = true;
 
-    while (canPlay == false && noMoves == false) {
+    while (!canPlay && !noMoves) {
 	for (int i = 0; i < hand.size(); i++) {
 	    if (hand[i].left() == left.left()) {
 		canPlay = true;
@@ -51,15 +59,21 @@ void CPlayer::makeMove() {
 	}
 
 	if (!canPlay) {
-	    // draw from boneyard
-	    // if boneyard empty, set noMoves to true
+	    if (!table->isBoneyardEmpty())
+		hand.push_back(table->deal());
+	    else
+		noMoves = true;
 	}
     }
 
     if (canPlay) {
+	std::cerr << "Playing piece: " << dominoToPlay.toString() << std::endl;
 	if (playLeft)
 	    table->placeLeft(dominoToPlay);
 	else
 	    table->placeRight(dominoToPlay);
+    }
+    else {
+	std::cerr << "Cannot play piece" << std::endl;
     }
 }
